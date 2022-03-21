@@ -2,7 +2,7 @@
 -- lexit.lua
 -- Solomon Himelbloom
 -- 2022-02-08
--- Exercise 2: Lexer in Lua
+-- Assignment 3, Exercise 2: Lexer in Lua
 -- 
 -- Adapted from source:
 -- https://github.com/ggchappell/cs331-2022-01/blob/main/lexer.lua
@@ -341,12 +341,11 @@ function lexit.lex(program)
   
   -- State STRING
   local function handle_STRING()
-    if ch == string.sub(lexstr, 1, 1) then
+    if ch == "\"" then
       add1()
       state = DONE
       category = lexit.STRLIT
     elseif ch == "" or ch == "\n" then
-      drop1()
       state = DONE
       category = lexit.MAL
     else
