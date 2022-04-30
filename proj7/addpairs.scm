@@ -6,7 +6,11 @@
 ; For CS F331 / CSCE A331 Spring 2022
 ; Programming in Scheme
 
-
-(display "Hello, world!")
-(newline)
-
+; addpairs
+(define (addpairs . args)
+    (cond
+        ((null? args) args)
+        ((null? (cdr args)) args)
+        (else (cons(+ (car args) (cadr args)) (apply addpairs (cddr args))))
+    )
+)
